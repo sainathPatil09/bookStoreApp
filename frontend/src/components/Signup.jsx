@@ -1,28 +1,17 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useLocation, useNavigate } from 'react-router-dom'
 import Login from './Login'
 import { useForm } from "react-hook-form"
 import { useState } from 'react'
+import axios from 'axios';
+import toast from 'react-hot-toast'
 
 
 const Signup = () => {
-    const [isLoginOpen, setLoginOpen] = useState(false);
-
-    const openLoginModal = () => {
-        // if(isLoginOpen){
-        //     setLoginOpen(false);
-        // }
-        // else{
-        //     setLoginOpen(true)
-        // }
-        setLoginOpen(true);
-    };
-
-    const closeLoginModal = () => {
-        setLoginOpen(false);
-    };
-
-
+    
+    const location = useLocation()
+    const from = location.state?.from?.pathname || '/'
+    const navigate = useNavigate();
 
     const {
         register,
@@ -31,7 +20,34 @@ const Signup = () => {
         formState: { errors },
     } = useForm();
 
-    const onSubmit = (data) => console.log(data)
+    const onSubmit = async (data) =>{
+        // console.log(data)
+        const userInfo = {
+            fullname : data.fullname,
+            email : data.email,
+            password : data.password
+        }
+        await axios.post('http://localhost:4001/user/signup', userInfo)
+        .then((res)=>{
+            console.log(res.data);
+            if(res.data){
+                toast.success('signup successfully');
+                navigate(from, {replace:true});
+                setTimeout(() => {
+                    window.location.reload()
+                }, 1000);
+
+            }
+            localStorage.setItem("User" , JSON.stringify(res.data.user))
+
+        })
+        .catch((err)=>{
+            if(err.response){
+                console.log(err)
+                toast.error('Error : ' + err.response.data.message);
+            }
+        })
+    } 
     return (
         <>
             {/* <div className='flex justify-center items-center bg-slate-900 min-h-screen'> */}
@@ -48,8 +64,8 @@ const Signup = () => {
                             <h3 className="font-bold text-lg">Signup</h3>
                             <div className='flex flex-col gap-1 mt-5 mb-5'>
                                 <span>Name</span>
-                                <input {...register("name", { required: true })} className='w-1/2 rounded-lg px-1 py-2  bg-white dark:text-black ' type="text" placeholder='Enter Your Name' />
-                                {errors.name && <span className='text-red-600'>This field is required*</span>}
+                                <input {...register("fullname", { required: true })} className='w-1/2 rounded-lg px-1 py-2  bg-white dark:text-black ' type="text" placeholder='Enter Your Name' />
+                                {errors.fullname && <span className='text-red-600'>This field is required*</span>}
                             </div>
                             <div className='flex flex-col gap-1 mt-5 mb-5'>
 

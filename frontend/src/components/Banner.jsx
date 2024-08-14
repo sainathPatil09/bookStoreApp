@@ -30,7 +30,7 @@ const Banner = () => {
                             <input  type="text" className="grow  text-black" placeholder="Enter your Email to login" />
                         </label>
 
-                        <button className="btn btn-outline border-blue-600 hover:bg-blue-600 outline">Primary</button>
+                        <button className="btn btn-outline border-blue-600 hover:bg-blue-600 outline">Get Started</button>
                     </div>
                 </div>
 
