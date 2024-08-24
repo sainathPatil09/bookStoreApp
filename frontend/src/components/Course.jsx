@@ -23,6 +23,19 @@ const Course = () => {
   
     
   }, [])
+
+
+  const [searchInput, setSearchInput] = useState('');
+
+  const handleSearchInput = (e) => {
+    setSearchInput(e.target.value);
+  };
+
+  const filteredBooks = searchInput
+    ? book.filter((b) =>
+        b.section.toLowerCase().includes(searchInput.toLowerCase())
+      )
+    : book;
   
   return (
     <>
@@ -37,10 +50,25 @@ const Course = () => {
         </Link>
         </div>
 
+        <div className="form-control text-white mt-2">
+            <input type="text" placeholder="Search for book"
+            value={searchInput}
+            onChange={handleSearchInput}
+             className="bg-slate-300 text-black input input-bordered w-1/2 mx-auto" />
+        </div>
+
         <div className='grid md:grid-cols-3 grid-cols-1'>
-          {book.map((item) => (
+          {/* {book.map((item) => (
             <Cards item={item} key={item.id} />
-          ))}
+          ))} */}
+
+          {filteredBooks.length > 0 ? (
+          filteredBooks.map((item) => (
+            <Cards item={item} key={item.id} />
+          ))
+        ) : (
+          <div>No books found for this category</div>
+        )}
         </div>
       </div>
     </>
