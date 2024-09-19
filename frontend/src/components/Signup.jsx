@@ -27,7 +27,7 @@ const Signup = () => {
             email : data.email,
             password : data.password
         }
-        await axios.post('https://bookstoreapp-nmab.onrender.com/user/signup', userInfo)
+        await axios.post('https://book-store-app-rouge.vercel.app/user/signup', userInfo)
         .then((res)=>{
             console.log(res.data);
             if(res.data){

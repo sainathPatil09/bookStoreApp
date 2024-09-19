@@ -12,7 +12,7 @@ const Course = () => {
     
     const getbook =async ()=>{
       try {
-        const res =await axios.get('https://bookstoreapp-nmab.onrender.com/book');
+        const res =await axios.get('https://book-store-app-rouge.vercel.app/book');
         console.log(res.data);
         setBook(res.data)
       } catch (error) {
