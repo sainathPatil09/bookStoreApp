@@ -33,7 +33,7 @@ const Contact = () => {
 
     return (
         <>
-            <div className='p-6 container md:mx-auto  md:w-1/2 space-y-3 shadow-2xl border border-slate-400 rounded-lg ml-2 mr-2  '>
+            <div className='p-6 container md:mx-auto  md:w-1/2 space-y-3 bg-yellow-100 shadow-2xl border border-slate-400 rounded-lg ml-2 mr-2  '>
                 <h1 className='text-4xl text-blue-600 font-bold'>Contact Us</h1>
 
                 <form onSubmit={onSubmit} action="" className='gap-4 flex flex-col'>
@@ -41,15 +41,15 @@ const Contact = () => {
 
 
                     <span>Name</span>
-                    <input className='md:w-1/2 rounded-lg px-1 py-2  bg-white dark:text-black ' type="text" placeholder='Enter Your Name' name='name' required />
+                    <input className='md:w-1/2 rounded-lg px-1 py-2 border-2 border-slate-400   bg-white dark:text-black ' type="text" placeholder='Enter Your Name' name='name' required />
                     <span>Email</span>
-                    <input className='md:w-1/2 rounded-lg px-1 py-2  bg-white dark:text-black ' type="email" placeholder='Enter Your Email' name='email' required />
+                    <input className='md:w-1/2 rounded-lg px-1 py-2 border-2 border-slate-400  bg-white dark:text-black ' type="email" placeholder='Enter Your Email' name='email' required />
                     <span>Message</span>
-                    <textarea className='md:w-1/2 rounded-lg px-1 py-2  bg-white dark:text-black ' placeholder='Enter Your message' name='message' required />
+                    <textarea className='md:w-1/2 rounded-lg px-1 py-2 border-2 border-slate-400   bg-white dark:text-black ' placeholder='Enter Your message' name='message' required />
 
                     <div>
 
-                        <button className="px-1 py-1 hover:bg-blue-600 hover:text-white border border-blue-600 rounded-xl cursor-pointer">Submit</button>
+                        <button className="px-4 py-2 font-semibold bg-blue-600 hover:text-white border border-blue-600 rounded-xl cursor-pointer">Submit</button>
 
                     </div>
 

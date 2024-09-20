@@ -101,7 +101,7 @@ const Navbar2 = () => {
 
 
                     <div className="form-control text-white">
-                        <input type="text" placeholder="Search" className="bg-slate-500 text-white input input-bordered w-24 md:w-auto" />
+                        <input type="text" placeholder="Search" className="dark:bg-slate-500 text-white dark:text-slate-700 bg-slate-300 input input-bordered w-24 md:w-auto" />
                     </div>
 
                     {/* <div className="navbar-end">
