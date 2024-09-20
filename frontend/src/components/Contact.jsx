@@ -41,11 +41,11 @@ const Contact = () => {
 
 
                     <span>Name</span>
-                    <input className='w-1/2 rounded-lg px-1 py-2  bg-white dark:text-black ' type="text" placeholder='Enter Your Name' name='name' required />
+                    <input className='md:w-1/2 rounded-lg px-1 py-2  bg-white dark:text-black ' type="text" placeholder='Enter Your Name' name='name' required />
                     <span>Email</span>
-                    <input className='w-1/2 rounded-lg px-1 py-2  bg-white dark:text-black ' type="email" placeholder='Enter Your Email' name='email' required />
+                    <input className='md:w-1/2 rounded-lg px-1 py-2  bg-white dark:text-black ' type="email" placeholder='Enter Your Email' name='email' required />
                     <span>Message</span>
-                    <textarea className='w-1/2 rounded-lg px-1 py-2  bg-white dark:text-black ' placeholder='Enter Your message' name='message' required />
+                    <textarea className='md:w-1/2 rounded-lg px-1 py-2  bg-white dark:text-black ' placeholder='Enter Your message' name='message' required />
 
                     <div>
 
